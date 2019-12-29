@@ -4,6 +4,9 @@ import java.lang.RuntimeException
 
 object CrashUnit {
 
+    init {
+        System.loadLibrary("native-lib")
+    }
 
     fun exceptionText() {
         throw Exception("exceptionText")
@@ -31,6 +34,9 @@ object CrashUnit {
 
     external fun getString(): String
 
+    external fun stringFromJNI(): String
+
+    external fun initCrash(m:Int,n:Int): Int
 
     object MyClass {
         fun get(): Int {
